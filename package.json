@@ -14,6 +14,9 @@
         "changelog",
         "generator"
     ],
-    "author": "Saahiththiyan",
+    "author": "pretty_commits team",
+    "contributors": [
+        "Saahiththiyan Mathivathanan<saahimathi@gmail.com>"
+    ],
     "license": "ISC"
 }
