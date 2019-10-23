@@ -1,0 +1,19 @@
+{
+    "name": "pretty_commits",
+    "version": "1.0.0",
+    "description": "A package to make git commits with proper standards",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "pretty",
+        "commits",
+        "git",
+        "tags",
+        "changelog",
+        "generator"
+    ],
+    "author": "Saahiththiyan",
+    "license": "ISC"
+}
