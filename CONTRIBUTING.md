@@ -1,8 +1,8 @@
 ### Please follow proper commit message standards 
-chore: add Oyster build script
-docs: explain hat wobble
-feat: add beta sequence
-fix: remove broken confirmation message
-refactor: share logic between 4d3d3d3 and flarhgunnstow
-style: convert tabs to spaces
-test: ensure Tayne retains clothing
+1. **chore:** add Oyster build script
+2. **docs:** explain hat wobble
+3. **feat:** add beta sequence
+4. **fix:** remove broken confirmation message
+5. **refactor:** share logic between 4d3d3d3 and flarhgunnstow
+6. **style:** convert tabs to spaces
+7. **test:** ensure Tayne retains clothing
