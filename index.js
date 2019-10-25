@@ -1,8 +1,12 @@
-var execProcess = require("./exec_process.js");
-execProcess.result("sh temp.sh", function(err, response) {
-  if (!err) {
-    console.log(response);
-  } else {
-    console.log(err);
+const child = require("child_process");
+const fs = require("fs");
+
+const output = child.execSync(`git log`).toString("utf-8");
+
+fs.writeFileSync("./temp/test.md", output, function(err) {
+  if (err) {
+    return console.log(err);
   }
+
+  console.log("The file was saved!");
 });
