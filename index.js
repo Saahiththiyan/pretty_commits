@@ -1,7 +1,6 @@
-const child = require("child_process");
-const fs    = require("fs");
+const fs        = require("fs");
+const changeLog = require("./public/changeLogGenerator.js");
 
-const output    = child.execSync(`git log --oneline`).toString("utf-8");
 const directory = './pretty';
 
 /**
@@ -11,27 +10,16 @@ const directory = './pretty';
 const validateFileSystem = () => {
 	if (!fs.existsSync(directory)) {
 		fs.mkdirSync(directory);
+		console.log('\t Pretty folder created.');
 	}
 }
 
-/**
- * Write data to Pretty-log.md file
- * 
- * @param {string} content 
- * @param {string} directory 
- */
-const writeToFile = (content, directory) => {
-	try {
-		fs.writeFileSync(`${directory}/pretty-log.md`, content);
-		console.log("Pretty File created Successfully !");
-	} catch (error) {
-		console.log(`Something went wrong : ${error}`);
-	}
-}
-
-console.log("Execution start...");
+console.log("--------------------------------------------");
+console.log("\t Pretty commit executing...");
 
 validateFileSystem();
-writeToFile(output, directory);
+changeLog.generateChangeLog(directory);
 
-console.log("Execution end");
+console.log("\t Execution end.");
+console.log("--------------------------------------------");
+
