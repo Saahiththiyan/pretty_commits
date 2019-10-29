@@ -19,5 +19,8 @@
         "Saahiththiyan Mathivathanan<saahimathi@gmail.com>",
         "Ahamed Rasheed<ahamedrasheedhot@gmail.com>"
     ],
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "figlet": "^1.2.4"
+    }
 }
