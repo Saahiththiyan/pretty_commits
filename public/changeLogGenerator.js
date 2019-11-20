@@ -1,16 +1,29 @@
 const child = require("child_process");
 const fs    = require("fs");
 
-const commitTypes = [
-	'feat',
-	'fix',
-	'docs',
-	'style',
-	'refactor',
-	'perf',
-	'test',
-	'chore'
-];
+const configs = require('../config/config.js')
+const repoLink    = 'https://github.com/Saahiththiyan/pretty_commits/commit/';
+
+const commitTypes = [];
+const test = [];
+const types       = configs.configs.commitTypes;
+let path          = '';
+
+const generateCommitArray = () => {
+    types.forEach(type => {
+        commitTypes.push(type.type);
+    });
+}
+
+const setCommitTypeSubHeading = (commitType) => {
+    types.forEach(type => {
+        if (type.type === commitType) {
+            test[type.type];
+        }
+    });
+    console.log(test);
+    
+}
 
 module.exports = {
     /**
@@ -20,7 +33,7 @@ module.exports = {
     generateChangeLog: (directory) => {
         const getTagsGitCommand = 'git log --no-walk=sorted --tags --pretty="%s <subject_n_date> %cd<end_of_tags>"';
         const getTagsGit        = child.execSync(getTagsGitCommand).toString("utf-8");
-        const path              = `${directory}/pretty-log.md`;
+        path                    = `${directory}/pretty-log.md`;
 
         let until = '';
         let tagList = getTagsGit.split('<end_of_tags>');
@@ -35,7 +48,7 @@ module.exports = {
                 let tag          = tags[0];
                 let date         = tags[1];
                 let titleDate    = new Date(date);
-                const commitLink = '[#%h](https://github.com/Saahiththiyan/pretty_commits/commit/%H)';
+                const commitLink = `[#%h](${repoLink}%H)`;
                 titleDate        = titleDate.getFullYear() + "-" + (titleDate.getMonth() + 1) + "-" + titleDate.getDate();
 
                 /**
@@ -50,10 +63,11 @@ module.exports = {
                 allSubjectList.forEach(subject => {
                     if (subject.includes(':')) {
                         subject = subject.split(': ');
+                        generateCommitArray();
 
                         let commitType = subject[0];
                         let message    = subject[1];
-
+                        
                         if (commitTypes.includes(commitType.trim())) {
                             /**
                              * Commit with commit type and commit hash
