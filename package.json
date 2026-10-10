@@ -21,6 +21,6 @@
     ],
     "license": "ISC",
     "dependencies": {
-        "figlet": "^1.2.4"
+        "figlet": "^1.11.3"
     }
 }
